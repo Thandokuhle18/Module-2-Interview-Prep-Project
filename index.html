@@ -3,10 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interview Prep Project</title>
-    <script src="challengeOne.js"></script
+    <title>Challenge 8</title>
 </head>
 <body>
-    
+
+<script>
+    window.alert("Welcome to our membership system!");
+
+    const nameInput = window.prompt("What is your name?");
+    const name = nameInput === null || nameInput.trim() === ""
+        ? "Guest"
+        : nameInput.trim();
+
+    const ageInput = window.prompt("What is your age?");
+    const age = Number(ageInput);
+
+    const validAge = !Number.isNaN(age) && age >= 1 && age <= 120;
+
+    if (!validAge) {
+        window.alert("Please enter a valid age between 1 and 120.");
+    } else {
+        const membershipTier =
+            age < 18
+                ? "Youth"
+                : age < 60
+                    ? "Adult"
+                    : "Senior";
+
+        const newsletter = window.confirm(
+            "Do you want to subscribe to our newsletter?"
+        );
+
+        const newsletterStatus = newsletter
+            ? "Subscribed"
+            : "Not subscribed";
+
+        window.alert(
+            "Name: " + name +
+            "\nAge: " + age +
+            "\nMembership: " + membershipTier +
+            "\nNewsletter: " + newsletterStatus
+        );
+    }
+</script>
+
 </body>
 </html>
